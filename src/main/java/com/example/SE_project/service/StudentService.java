@@ -12,12 +12,12 @@ public interface StudentService {
 
     List<StudentDTO> allStudents();
 
-    StudentDTO getInfo(Integer id);
+    StudentDTO getInfo(String id);
 
-    List<File> getFiles(Integer id);
+    List<File> getFiles(String id);
 
-    List<FileHistoryDTO> getHistory(Integer id);
+    List<FileHistoryDTO> getHistory(String id);
 
-    StatisticDTO getStatistic(Integer id,Integer month);
+    StatisticDTO getStatistic(String id,Integer month);
 
 }

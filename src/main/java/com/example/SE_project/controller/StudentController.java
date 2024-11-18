@@ -24,22 +24,22 @@ public class StudentController {
     }
 
     @GetMapping("/info/{id}")
-    public ResponseEntity<?> getInfo(@PathVariable Integer id){
+    public ResponseEntity<?> getInfo(@PathVariable String id){
         return new ResponseEntity<>(studentService.getInfo(id),HttpStatus.OK);
     }
 
     @GetMapping("/statistic/{id}/{month}")
-    public ResponseEntity<?> getStatistic(@PathVariable Integer id,@PathVariable Integer month){
+    public ResponseEntity<?> getStatistic(@PathVariable String id,@PathVariable Integer month){
         return new ResponseEntity<>(studentService.getStatistic(id,month),HttpStatus.OK);
     }
 
     @GetMapping("/file_list/{id}")
-    public ResponseEntity<?> getFiles(@PathVariable Integer id){
+    public ResponseEntity<?> getFiles(@PathVariable String id){
         return new ResponseEntity<>(studentService.getFiles(id),HttpStatus.OK);
     }
 
     @GetMapping("/history/{id}")
-    public ResponseEntity<?> getHistory(@PathVariable Integer id){
+    public ResponseEntity<?> getHistory(@PathVariable String id){
         return new ResponseEntity<>(studentService.getHistory(id),HttpStatus.OK);
     }
 

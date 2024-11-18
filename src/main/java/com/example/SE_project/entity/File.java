@@ -28,6 +28,9 @@ public class File {
     @Column(name = "num_pages",nullable = false)
     private Integer num_pages;
 
+    @Lob
+    private byte[] data;
+
     @ManyToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     @JsonBackReference

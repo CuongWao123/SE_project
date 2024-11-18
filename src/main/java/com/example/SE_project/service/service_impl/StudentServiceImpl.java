@@ -36,7 +36,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentDTO getInfo(Integer id) {
+    public StudentDTO getInfo(String id) {
         Student student = studentRepository.findById(id).orElseThrow(
                 () -> new UserNotFound("Can't find Student by ID: " + id)
         );
@@ -44,7 +44,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<File> getFiles(Integer id) {
+    public List<File> getFiles(String id) {
         Student student = studentRepository.findById(id).orElseThrow(
                 () -> new UserNotFound("Can't find Student by ID: " + id)
         );
@@ -52,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<FileHistoryDTO> getHistory(Integer id) {
+    public List<FileHistoryDTO> getHistory(String id) {
         Student student = studentRepository.findById(id).orElseThrow(
                 () -> new UserNotFound("Can't find Student by ID: " + id)
         );
@@ -73,7 +73,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StatisticDTO getStatistic(Integer id, Integer month) {
+    public StatisticDTO getStatistic(String id, Integer month) {
         Student student = studentRepository.findById(id).orElseThrow(
                 () -> new UserNotFound("Can't find Student by ID: " + id)
         );
