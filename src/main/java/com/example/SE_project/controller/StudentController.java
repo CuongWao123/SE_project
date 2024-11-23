@@ -5,6 +5,7 @@ import com.example.SE_project.dto.SendRequestDTO;
 import com.example.SE_project.dto.StudentDTO;
 import com.example.SE_project.dto.requestDTO;
 import com.example.SE_project.entity.Student;
+import com.example.SE_project.service.AdminService;
 import com.example.SE_project.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,8 @@ public class StudentController {
 
     private StudentService studentService ;
 
+    private AdminService adminService;
+
     @GetMapping("/all")
     public ResponseEntity<List<StudentDTO>> allStudent(){
         return new ResponseEntity<>(studentService.allStudents(), HttpStatus.OK);
@@ -31,9 +34,14 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getInfo(id),HttpStatus.OK);
     }
 
-    @GetMapping("/statistic/{id}/{month}")
-    public ResponseEntity<?> getStatistic(@PathVariable String id,@PathVariable Integer month){
-        return new ResponseEntity<>(studentService.getStatistic(id,month),HttpStatus.OK);
+//    @GetMapping("/statistic/{id}/{month}")
+//    public ResponseEntity<?> getStatistic(@PathVariable String id,@PathVariable Integer month){
+//        return new ResponseEntity<>(studentService.getStatistic(id,month),HttpStatus.OK);
+//    }
+
+    @GetMapping("/statistic/{id}/{year}")
+    public ResponseEntity<?> getStatistic(@PathVariable String id,@PathVariable Integer year){
+        return new ResponseEntity<>(studentService.getStatistic(id,year),HttpStatus.OK);
     }
 
     @GetMapping("/file_list/{id}")
@@ -68,4 +76,10 @@ public class StudentController {
     ){
         return new ResponseEntity<>(studentService.deleteFile(file_id),HttpStatus.OK);
     }
+
+    @GetMapping("/getAllPrinter")
+    public ResponseEntity<?> getAllPrinter(){
+        return new ResponseEntity<>(adminService.get_all_printer(),HttpStatus.OK);
+    }
+
 }
